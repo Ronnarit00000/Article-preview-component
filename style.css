@@ -1,0 +1,365 @@
+:root {
+
+    /* font family */
+    --ff-base: "Manrope", sans-serif;
+    
+    /* font-size */
+    --fs-500 : clamp(1rem, 0.6543rem + 0.8511vw, 1.25rem); /* 16px - 20px */
+    --fs-300 : 0.8125rem; /* 13px */
+
+    /* font-weight */
+    --fw-bold   : 700;
+    --fw-medium : 500;
+
+    /* color */
+    --clr-neutral-500 : hsl(217, 19%, 35%);
+    --clr-neutral-400 : hsl(214, 17%, 51%);
+    --clr-neutral-300 : hsl(212, 23%, 69%);
+    --clr-neutral-200 : hsl(210, 46%, 95%);
+    --clr-white       : hsl(  0,  0%, 98%);
+}
+
+
+/*--------------------------------------------------------*/
+/*                         Boilerplate                    */
+/*--------------------------------------------------------*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+body{
+    margin:0;
+}
+
+img,
+picture {
+    display: block;
+    object-fit: cover;
+    width:  100%;
+    height: 100%;
+}
+
+body {
+    font-family: var(--ff-base);
+    font-size:   var(--fs-300);
+    font-weight: var(--fw-medium);
+    min-height: 100dvh;
+    background-color: var(--clr-neutral-200);
+
+    display:grid;
+    place-items: center;
+}
+
+@media(pafers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after{
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/*--------------------------------------------------------*/
+/*                         .previewCard                   */
+/*--------------------------------------------------------*/
+
+.previewCard {
+    --space-lr:1.5rem;
+    width: min(100% - (var(--space-lr) * 2) , 25rem);
+    margin-inline: auto;
+    box-shadow: 0 1rem 5rem -1.5rem hsla(218, 9%, 18%, 0.2);
+}
+
+/*--------------------------------------------------------*/
+/*                 previewCard image                      */
+/*--------------------------------------------------------*/
+
+.previewCard .previewImage {
+    border-top-left-radius: 0.625rem;
+    border-top-right-radius: 0.625rem;
+    max-height: 200px;
+}
+
+/*--------------------------------------------------------*/
+/*               previewCard description                  */
+/*--------------------------------------------------------*/
+
+.previewCard .previewDescription {
+    padding-inline:         2rem;
+    padding-block-start: 2.25rem;
+    padding-block-end:   0.75rem;
+    background-color: var(--clr-white);
+}
+
+.previewCard .previewDescription > * + * {
+    margin-block-start: 0.75rem;
+}
+
+.previewCard .previewDescription .subject {
+    font-size:     var(--fs-500);
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-500);
+    letter-spacing: 0.2px;
+    line-height: 24px;
+}
+
+.previewCard .previewDescription .content {
+    color: var(--clr-neutral-400);
+    letter-spacing: 0.12px;
+    line-height: 20px;
+}
+
+/*--------------------------------------------------------*/
+/*                   previewCard avatar                   */
+/*--------------------------------------------------------*/
+
+.previewCard .previewAvatar {
+    padding-inline:         2rem;
+    padding-block:        1.25rem;
+    border-bottom-left-radius:  0.625rem;
+    border-bottom-right-radius: 0.625rem;
+    
+    display: grid;
+    column-gap:1rem;
+    align-items: center;
+    grid-template-columns: max-content 1fr max-content;
+    position: relative;
+    background-color: var(--clr-white);
+}
+
+.previewCard .previewAvatar .Avatar {
+    width:  2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    grid-column: 1;
+    grid-row: span 2;
+}
+
+.previewCard .previewAvatar .name {
+    grid-column: 2;
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-500);
+}
+
+.previewCard .previewAvatar .date {
+    grid-column: 2;
+    font-weight: var(--fw-medium);
+    color: var(--clr-neutral-300);
+}
+
+.previewCard .previewAvatar .share {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    background-color: var(--clr-neutral-200);
+    border-radius: 50%;
+    width:  2rem;
+    height: 2rem;
+}
+
+.previewCard .previewAvatar .share:hover,
+.previewCard .previewAvatar .share:focus {
+    background-color: var(--clr-neutral-500);
+    outline: none;
+}
+
+.previewCard .previewAvatar .share:hover > img,
+.previewCard .previewAvatar .share:focus > img{
+    filter:contrast(0%) brightness(2);
+    outline: none;
+}
+
+.previewCard .previewAvatar .shareImage {
+    object-fit: scale-down;
+    width: 2rem;
+    height: 2rem;
+}
+
+/*--------------------------------------------------------*/
+/*                   previewCard shareBox                 */
+/*--------------------------------------------------------*/
+
+.previewCard .previewAvatar .shareBox {
+    position: absolute;
+    inset: 0;
+
+    padding-block: 1.375rem;
+    padding-inline: 2rem;
+    border-bottom-left-radius:  0.625rem;
+    border-bottom-right-radius: 0.625rem;
+    display: grid;
+    align-items: center;
+    column-gap: 1rem;
+    grid-template-columns:1fr max-content;
+    background-color: var(--clr-neutral-500);
+}
+
+.previewCard .previewAvatar .shareBox a[id="remove"]{
+    background-color: var(--clr-neutral-300);
+    border-radius: 50%;
+}
+
+.previewCard .previewAvatar .shareBox .shareImage {
+    width: 2rem;
+    height: 2rem;
+    filter:contrast(0%) brightness(2);
+}
+
+
+/*--------------------------------------------------------*/
+/*                   previewCard socialBox                */
+/*--------------------------------------------------------*/
+
+.previewCard .previewAvatar .shareBox .socialBox  > * {
+    float: left;
+}
+
+
+.previewCard .previewAvatar .shareBox .socialBox::after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+.previewCard .previewAvatar .shareBox .socialBox > * + * {
+    margin-inline-start: 1rem;
+}
+
+.previewCard .previewAvatar .shareBox  .socialBox p {
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    color: var(--clr-neutral-300);
+}
+
+.previewCard .previewAvatar .shareBox .socialBox img {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: scale-down;
+}
+
+
+@media (min-width: 900px) {
+
+    /*--------------------------------------------------------*/
+    /*                         .previewCard                   */
+    /*--------------------------------------------------------*/
+    
+    .previewCard {
+        width: min(100% - (var(--space-lr) * 2), 45.625rem); /*730px*/
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows:  1fr;
+    }
+
+    /*--------------------------------------------------------*/
+    /*                 previewCard image                      */
+    /*--------------------------------------------------------*/
+
+    .previewCard .previewImage {
+        grid-column: 1;
+        grid-row: span 2;
+        width: 285px;
+        max-height: 280px;
+        border-top-left-radius: 0.625rem;
+        border-bottom-left-radius: 0.625rem;
+        border-top-right-radius: 0;
+    }
+
+    /*--------------------------------------------------------*/
+    /*               previewCard description                  */
+    /*--------------------------------------------------------*/
+
+    .previewCard .previewDescription {
+        border-top-right-radius: 0.625rem;
+        padding-inline: 2.5rem;
+        padding-block-start: 2rem;
+        padding-block-end: 0;
+    }
+
+    .previewCard .previewDescription .subject {
+        line-height: 28px;
+        letter-spacing: 0.25px;
+    }
+    
+    /*--------------------------------------------------------*/
+    /*                   previewCard avatar                   */
+    /*--------------------------------------------------------*/
+
+    .previewCard .previewAvatar {
+        padding-inline: 2.5rem;
+        padding-block-start: 1.25rem;
+        padding-block-end:   2rem;
+        border-bottom-left-radius:  0;
+        border-bottom-right-radius: 0.625rem;
+        position: relative;
+    }
+
+    /*--------------------------------------------------------*/
+    /*                   previewCard shareBox                 */
+    /*--------------------------------------------------------*/
+
+    .previewCard .previewAvatar .shareBox {
+        padding-inline: 1.5rem;
+        padding-block-end: 2rem;
+        background: transparent;   
+    }
+
+    .previewCard .previewAvatar .shareBox a[id="remove"]{
+        width: max-content;
+        justify-self: end;
+        background-color: var(--clr-neutral-500);
+        border-radius: 50%;
+        scale: 1.1;
+    }
+
+    .previewCard .previewAvatar .shareBox a[id="remove"]:hover {
+        outline: none;
+        background-color: var(--clr-neutral-300);
+    }
+    
+    /*--------------------------------------------------------*/
+    /*                   previewCard socialBox                */
+    /*--------------------------------------------------------*/
+
+    .previewCard .previewAvatar .shareBox .socialBox {
+        position: absolute;
+        background-color: var(--clr-neutral-500);
+        top: -3.8rem;
+        right: -3.5rem;
+        padding-inline:  2rem;
+        padding-block:   1.2rem;
+        border-radius: 0.625rem;
+        box-shadow: 0 0.5rem 2.5rem 0 hsla(218, 19%, 25%, 0.336);
+    }
+
+    .previewCard .previewAvatar .shareBox .socialBox::before {
+        content: "";
+        position: absolute;
+        transform: translateY(1.5rem) translateX(-5.8rem) rotatez(47deg);
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: var(--clr-neutral-500);
+    }
+
+    .previewCard .previewAvatar .shareBox .socialBox > * + * {
+        margin-inline-start: 1.2rem;
+    }
+
+    .previewCard .previewAvatar .shareBox .socialBox > a{
+        transition: 0.2s;
+    }
+    
+    .previewCard .previewAvatar .shareBox .socialBox > a:hover {
+        transform: scale(1.8);
+    }
+}
