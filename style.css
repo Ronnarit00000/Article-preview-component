@@ -344,10 +344,15 @@ body {
         box-shadow: 0 0.5rem 2.5rem 0 hsla(218, 19%, 25%, 0.336);
     }
 
-    .previewCard .previewAvatar .shareBox .socialBox::before {
+    
+    .previewCard .previewAvatar .shareBox .socialBox p{
+        position: relative;
+    }
+
+    .previewCard .previewAvatar .shareBox .socialBox p::before {
         content: "";
         position: absolute;
-        transform: translateY(1.5rem) translateX(-5.8rem) rotatez(47deg);
+        transform: translateY(1.7rem) translateX(5.2rem) rotatez(45deg);
         width: 1.5rem;
         height: 1.5rem;
         background-color: var(--clr-neutral-500);
