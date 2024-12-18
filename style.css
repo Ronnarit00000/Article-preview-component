@@ -148,12 +148,14 @@ body {
 
 .previewCard .previewAvatar .name {
     grid-column: 2;
+    font-size: var(--fs-300);
     font-weight: var(--fw-bold);
     color: var(--clr-neutral-500);
 }
 
 .previewCard .previewAvatar .date {
     grid-column: 2;
+    font-size: var(--fs-300);
     font-weight: var(--fw-medium);
     color: var(--clr-neutral-300);
 }
@@ -235,7 +237,7 @@ body {
     margin-inline-start: 1rem;
 }
 
-.previewCard .previewAvatar .shareBox  .socialBox p {
+.previewCard .previewAvatar .shareBox .socialBox p {
     text-transform: uppercase;
     letter-spacing: 0.25rem;
     color: var(--clr-neutral-300);

@@ -17,7 +17,10 @@ shareButton.addEventListener('click', () => {
             <a href="#"><img src="images/icon-twitter.svg" alt=""></a>
             <a href="#"><img src="images/icon-pinterest.svg" alt=""></a>
         </div>
-        <a id="remove" href="#"><img class="shareImage" src="images/icon-share.svg" alt=""></a>
+        
+        <a id="remove" href="#">
+            <img class="shareImage" src="images/icon-share.svg" alt="">
+        </a>
     `
 
     // append chlid (shareBox)
